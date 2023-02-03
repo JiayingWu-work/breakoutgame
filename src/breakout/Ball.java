@@ -63,6 +63,11 @@ public class Ball {
         this.centerY = currentCenterY;
         ball.setPosition(currentCenterX, currentCenterY);
     }
+//
+//    public double getCenterX() {
+//        return this.centerX;
+//    }
+//
 
     /**
      * Change direction and angle when ball hits the wall
