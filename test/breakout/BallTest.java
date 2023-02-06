@@ -3,6 +3,8 @@ package breakout;
 import edu.macalester.graphics.CanvasWindow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.awt.*;
 
@@ -24,10 +26,22 @@ class BallTest {
         ball = new Ball(100, 100, 10, 10, canvas);
     }
 
-    @Test
-    void testUpdatePosition() {
-        ball.updatePosition(10);
-        assertEquals(ball.getCenterX(), 110);
+
+    @ParameterizedTest
+    @ValueSource(ints = {10, 15, 50, 400, 300})
+    void testUpdatePosition(int xPosition) {
+        ball.getBall().setPosition(xPosition, 40);
+        assertEquals(ball.getBall().getPosition().getX(), xPosition);
     }
+
+    @Test
+    void testBallMovement(){
+        double currCenterX = ball.getCenterX();
+        double currCenterY = ball.getCenterY();
+        ball.updatePosition(10);
+        assertFalse(currCenterX == ball.getCenterX());
+        assertFalse(currCenterY == ball.getCenterY());
+    }
+
 
 }

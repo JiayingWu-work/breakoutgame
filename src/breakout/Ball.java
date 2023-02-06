@@ -23,6 +23,9 @@ public class Ball {
     private GraphicsObject ballDown;
     private GraphicsObject ballLeft;
     private GraphicsObject ballRight;
+
+
+
     private Ellipse ball;
 
     /**
@@ -157,6 +160,10 @@ public class Ball {
      */
     public double getCenterY() {
         return centerY;
+    }
+
+    public Ellipse getBall() {
+        return ball;
     }
 
 }
