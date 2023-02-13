@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="breakout.BallTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-02-06T18:53:15" hostname="DESKTOP-9215P9M" time="0.674">
+  <properties/>
+  <testcase name="[1] 10" classname="breakout.BallTest" time="0.499"/>
+  <testcase name="[2] 15" classname="breakout.BallTest" time="0.038"/>
+  <testcase name="[3] 50" classname="breakout.BallTest" time="0.044"/>
+  <testcase name="[4] 400" classname="breakout.BallTest" time="0.037"/>
+  <testcase name="[5] 300" classname="breakout.BallTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
