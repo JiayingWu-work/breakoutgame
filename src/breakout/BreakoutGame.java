@@ -63,7 +63,10 @@ public class BreakoutGame {
      */
     public void playGame() {
 
-        createBall();
+        for(int i = 0; i < 3; i++){
+            createBall();
+        }
+        
         canvas.animate(()-> {
 
             if (death < 3){
