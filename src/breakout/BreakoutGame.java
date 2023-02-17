@@ -1,5 +1,6 @@
 package breakout;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import edu.macalester.graphics.CanvasWindow;
 
@@ -17,7 +18,6 @@ public class BreakoutGame {
 
     private CanvasWindow canvas;
     private Paddle paddle;
-    private Ball ball;
     private ArrayList<Ball> balls = new ArrayList<>();
     private BrickManager brickManager;
 
@@ -52,9 +52,9 @@ public class BreakoutGame {
      * Create ball method
      */
     private void createBall(){
-        this.ball = new Ball(300, 400, 10, 10, canvas);
-        this.ball.addToCanvas(canvas);
-        balls.add(ball);
+        Ball ball = new Ball(300, 400, 10, 10, canvas);
+        ball.addToCanvas(canvas);
+        this.balls.add(ball);
         canvas.draw();
     }
 
@@ -69,29 +69,45 @@ public class BreakoutGame {
         
         canvas.animate(()-> {
 
-            if (death < 3){
-                for(Ball balls : balls){
-                    balls.updatePosition(dt);
-                    balls.wallCollision();
-                    balls.brickCollison(canvas);
-                    balls.paddleCollison();
+             if (death < 9){
+                for(Ball ball : balls){
+                    ball.updatePosition(dt);
+                    ball.wallCollision();
+                    ball.brickCollison(canvas);
+                    ball.paddleCollison();
                 }
 
             }
 
-            if (death == 3){
+            if (death == 9){
                 canvas.closeWindow();
             }
 
-            if (ball.getCenterY() > 800){
-                death ++;
-                ball.removeFromCanvas(canvas);
 
-                if (death < 3){
-                    createBall();
-                    canvas.pause(3000);
+            Iterator itr = balls.iterator();
+
+            while (itr.hasNext()) {
+                Ball ball = (Ball) itr.next();
+                if (ball.getCenterY() > 800){
+                    death++;
+                    System.out.println(death);
+                    ball.removeFromCanvas(canvas);
+                    itr.remove();
+
+                    if (death == 3){
+                        for(int i = 0; i < 3; i++){
+                            createBall();
+                        }
+                        canvas.pause(3000);
+                    }
+
+
                 }
+
+
             }
+
+            
         });
     }
 }
