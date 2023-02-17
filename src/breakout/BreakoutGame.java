@@ -94,10 +94,9 @@ public class BreakoutGame {
                     ball.removeFromCanvas(canvas);
                     itr.remove();
 
-                    if (death == 3){
-                        for(int i = 0; i < 3; i++){
-                            createBall();
-                        }
+                    if (balls.size() == 0){
+                        BreakoutGame game = new BreakoutGame();
+                        game.run();
                         canvas.pause(3000);
                     }
 
