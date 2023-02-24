@@ -26,7 +26,6 @@ class BallTest {
         ball = new Ball(100, 100, 10, 10, canvas);
     }
 
-
     @ParameterizedTest
     @ValueSource(ints = {10, 15, 50, 400, 300})
     void testUpdatePosition(int xPosition) {
