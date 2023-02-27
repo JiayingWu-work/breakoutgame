@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="breakout.MockitoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-24T18:56:52" hostname="Jiayings-MacBook-Air.local" time="0.044">
+<testsuite name="breakout.MockitoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-27T18:36:45" hostname="DESKTOP-9215P9M" time="0.071">
   <properties/>
-  <testcase name="ballTest()" classname="breakout.MockitoTest" time="0.037"/>
-  <testcase name="mockRunGameTest()" classname="breakout.MockitoTest" time="0.005"/>
+  <testcase name="ballTest2()" classname="breakout.MockitoTest" time="0.071"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
