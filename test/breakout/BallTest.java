@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BallTest {
@@ -17,6 +15,7 @@ class BallTest {
     private double centerY = 400;
     private double initialXVelocity = 1;
     private double initialYVelocity = 1;
+    double maxX = 600;
     private CanvasWindow canvas;
 
 
@@ -34,7 +33,7 @@ class BallTest {
     }
 
     @Test
-    void testBallMovement(){
+    void testBallMovementFalse(){
         double currCenterX = ball.getCenterX();
         double currCenterY = ball.getCenterY();
         ball.updatePosition(10);
@@ -42,5 +41,16 @@ class BallTest {
         assertFalse(currCenterY == ball.getCenterY());
     }
 
+    @Test
+    void testWallCollision() {
+        double currCenterX = ball.getCenterX();
+        double currCenterY = ball.getCenterY();
+        if (currCenterX > maxX || currCenterX < 0) {
+            assertEquals(initialXVelocity, -initialXVelocity);
+        }
+        if (currCenterY < 0){
+            assertEquals(initialYVelocity, -initialYVelocity);
+        }
+    }
 
 }
